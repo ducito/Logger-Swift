@@ -10,12 +10,12 @@ import Foundation
 
 // Enum for showing the type of Log Types
 public enum LogEvent: String {
-    case e = "[‼️]" // error
-    case i = "[ℹ️]" // info
-    case d = "[💬]" // debug
-    case v = "[🔬]" // verbose
-    case w = "[⚠️]" // warning
-    case s = "[🔥]" // severe
+    case e = "‼️" // error
+    case i = "ℹ️" // info
+    case d = "💬" // debug
+    case v = "🔬" // verbose
+    case w = "⚠️" // warning
+    case s = "🔥" // severe
 }
 
 open class Logger {
@@ -29,12 +29,7 @@ open class Logger {
         return formatter
     }
     
-    open class func log(message: String,
-                   event: LogEvent,
-                   fileName: String = #file,
-                   line: Int = #line,
-                   column: Int = #column,
-                   funcName: String = #function) {
+    open class func log(message: String, event: LogEvent, fileName: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
         
         #if DEBUG
             print("\(Date().toString()) \(event.rawValue)[\(sourceFileName(filePath: fileName))]:\(line) \(column) \(funcName) -> \(message)")
